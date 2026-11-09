@@ -6,7 +6,8 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { Logo } from "./Logo";
 import { Badge } from "./ui";
 import { services } from "@/content/services";
-import { site, isPlaceholder } from "@/content/site";
+import { site, isPlaceholder, designer } from "@/content/site";
+import { Arrow } from "./Icons";
 
 export function Footer() {
   const ref = useRef<HTMLElement>(null);
@@ -110,6 +111,30 @@ export function Footer() {
         <div className="container-x flex flex-col gap-2 py-5 text-sm text-white/60 sm:flex-row sm:justify-between">
           <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
           <p>Kenya</p>
+        </div>
+      </div>      <div className="border-t border-white/10 bg-[#050d17]">
+        <div className="container-x flex flex-col items-start justify-between gap-4 py-5 sm:flex-row sm:items-center">
+          <p className="text-white/80">
+            Designed &amp; developed by{" "}
+            {designer.href ? (
+              <a href={designer.href} target="_blank" rel="noopener noreferrer" className="font-bold text-[#22c55e] hover:underline">
+                {designer.name}
+              </a>
+            ) : (
+              <span className="font-bold text-[#22c55e]">{designer.name}</span>
+            )}
+          </p>
+          {designer.href && (
+            <a
+              href={designer.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex min-h-11 items-center gap-2 rounded-full border border-[#22c55e] px-5 text-sm font-semibold text-[#22c55e] transition-colors hover:bg-[#22c55e] hover:text-[#050d17]"
+            >
+              Need a website like this? Let&apos;s talk
+              <Arrow className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </a>
+          )}
         </div>
       </div>
     </footer>
