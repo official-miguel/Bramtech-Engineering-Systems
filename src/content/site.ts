@@ -19,7 +19,7 @@ export const site = {
     { days: "Saturday", time: "[8:00 am to 1:00 pm]" },
     { days: "Sunday", time: "[Closed]" },
   ],
-  ceo: { name: "[CEO full name]", title: "[Chief Executive Officer]" },
+  ceo: { name: "Raphael Kang'ara", title: "[Chief Executive Officer]" },
   social: [
     { label: "Facebook", href: "[https://facebook.com/yourpage]" },
     { label: "Instagram", href: "[https://instagram.com/yourpage]" },

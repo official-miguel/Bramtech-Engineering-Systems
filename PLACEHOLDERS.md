@@ -11,7 +11,7 @@ Everything in `[square brackets]` on the site is a placeholder. Edit them in the
 | Address and town | Footer, contact page, search listing data |
 | Areas served | Search listing data (JSON-LD) |
 | Opening hours | Footer, contact page |
-| CEO name and title | About section |
+| CEO title (name is set: Raphael Kang'ara) | About section |
 | Company story (3 paragraphs) | About section |
 | Social links (Facebook, Instagram, TikTok) | Footer |
 | Trust strip: "Own installation team", "Written warranty", "Free site survey" | Hero. Remove any claim you cannot back up |
