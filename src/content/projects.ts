@@ -40,6 +40,15 @@ const raw: Raw[] = [
   { id: "solar-water-heater-tech", title: "Water heater on the roof", category: "Solar", image: "/images/solar/water-heater-rooftop-technician.jpg", alt: "Technician fitting a solar water heater on a rooftop", position: "50% 35%" },
   { id: "solar-hybrid-inverter", title: "Hybrid inverter", category: "Solar", image: "/images/solar/hybrid-inverter-wall.jpg", alt: "Wall-mounted hybrid inverter with cabling", position: "50% 40%" },
   { id: "solar-battery-inverter", title: "Battery and inverter", category: "Solar", image: "/images/solar/battery-inverter-installation.jpg", alt: "Battery and inverter installation with wiring", position: "50% 40%" },
+  { id: "solar-array-field", title: "Roof-mounted solar array", category: "Solar", image: "/images/solar/solar-array-open-field.jpg", alt: "Rows of solar panels on a flat roof with open land and houses behind", position: "50% 60%" },
+  { id: "solar-heater-frame", title: "Water heater frame assembly", category: "Solar", image: "/images/solar/water-heater-frame-assembly.jpg", alt: "Two technicians assembling a stainless steel solar water heater frame on a flat roof", position: "50% 35%" },
+  { id: "solar-felicity-board", title: "Inverter, changeover and protection", category: "Solar", image: "/images/solar/felicity-inverter-avr-board.jpg", alt: "Wall-mounted hybrid inverter, voltage protector, changeover switch and distribution board on trunking", position: "50% 50%" },
+  { id: "solar-prostar-rack", title: "Inverter and battery rack", category: "Solar", image: "/images/solar/prostar-inverter-battery-rack.jpg", alt: "Technician fitting a battery rack below a wall-mounted green hybrid inverter", position: "50% 40%" },
+  { id: "solar-srne-cage", title: "Lithium batteries in a steel cage", category: "Solar", image: "/images/solar/srne-inverter-battery-cage.jpg", alt: "Wall-mounted inverter with two lithium batteries inside a steel safety cage", position: "50% 40%" },
+  { id: "solar-srne-cage-close", title: "Battery cage and inverter", category: "Solar", image: "/images/solar/srne-battery-cage-closeup.jpg", alt: "Inverter, breaker and two lithium batteries inside a locking steel cage", position: "50% 35%" },
+  { id: "solar-commissioning", title: "Commissioning the inverter", category: "Solar", image: "/images/solar/technician-commissioning-srne.jpg", alt: "Bramtech technician in branded overalls setting up an inverter beside a battery cage", position: "50% 30%" },
+  { id: "solar-srne-cabinet", title: "Battery and inverter cabinet", category: "Solar", image: "/images/solar/srne-felicity-cabinet.jpg", alt: "Lithium battery, hybrid inverter, distribution board and pump drive mounted inside a steel cabinet", position: "50% 50%" },
+  { id: "solar-wall-battery", title: "Wall battery and inverter", category: "Solar", image: "/images/solar/felicity-wall-battery-inverter.jpg", alt: "Changeover switch, distribution board, inverter and wall-mounted battery on a clean wall", position: "50% 40%" },
   { id: "electrical-ladders", title: "Cabling on ladders", category: "Electrical", image: "/images/electrical/team-on-ladders-cabling.jpg", alt: "Bramtech team on ladders running cables", position: "50% 25%" },
   { id: "electrical-metal-enclosure", title: "Metal enclosure fabrication", category: "Electrical", image: "/images/electrical/cutting-metal-enclosure.jpg", alt: "Worker cutting a metal enclosure for electrical equipment", position: "50% 35%" },
   { id: "electrical-meter-box", title: "Outdoor meter box wiring", category: "Electrical", image: "/images/electrical/outdoor-meter-box-wiring.jpg", alt: "Outdoor meter box with wiring being connected", position: "50% 50%" },
@@ -72,12 +81,29 @@ export const projects: Project[] = raw.map((p) => {
     category: p.category,
     hire: p.hire,
     orientation: base.width >= base.height ? "landscape" : "portrait",
-    location: "[Location]",
-    year: "[Year]",
+    location: "",
+    year: "",
   };
 });
 
+/** Curated mix for the landing page preview (one of each service first). */
+export const featuredIds = [
+  "solar-team-inverter",
+  "sound-line-array",
+  "electrical-ladders",
+  "solar-commissioning",
+  "cctv-camera-pole",
+  "fence-wall",
+  "solar-array-field",
+  "sound-school-event",
+  "machinery-mixer",
+  "solar-srne-cage",
+  "electrical-db-team",
+  "sound-stacks",
+];
+
 export const getProject = (id: string) => projects.find((p) => p.id === id)!;
+export const featured = featuredIds.map((id) => projects.find((p) => p.id === id)!);
 export const hireProjects = projects.filter((p) => p.hire);
 
 export const team = {

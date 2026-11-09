@@ -21,7 +21,9 @@ export function MachinerySection() {
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-slate">
               Installation, wiring and commissioning of industrial machines. We handle motors, gearboxes and control panels, then test the machine before handover.
             </p>
-            <p className="mt-4 text-sm text-slate">Machine types we work on: {site.machineTypes.join(", ")}</p>
+            {site.machineTypes.length > 0 && (
+              <p className="mt-4 text-sm text-slate">Machine types we work on: {site.machineTypes.join(", ")}</p>
+            )}
             <Link href="/services/machinery" className="group mt-6 inline-flex min-h-12 items-center gap-2 font-bold text-orange-text">
               See machinery installation <Arrow className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>

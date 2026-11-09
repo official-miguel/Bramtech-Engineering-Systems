@@ -19,7 +19,7 @@ export const site = {
     { days: "Saturday", time: "[8:00 am to 1:00 pm]" },
     { days: "Sunday", time: "[Closed]" },
   ],
-  ceo: { name: "Raphael Kang'ara", title: "[Chief Executive Officer]" },
+  ceo: { name: "Raphael Kang'ara", title: "Chief Executive Officer" },
   social: [
     { label: "Facebook", href: "[https://facebook.com/yourpage]" },
     { label: "Instagram", href: "[https://instagram.com/yourpage]" },
@@ -27,20 +27,16 @@ export const site = {
   ],
   // Only keep claims the owner has confirmed.
   trust: ["Own installation team", "Written warranty", "Free site survey"],
+  // Plain description only. Add real history, years and numbers here when you have them.
   about: [
-    "[Short company story, paragraph 1. Who you are and where you work.]",
-    "[Paragraph 2. What you install and how your team works on site.]",
-    "[Paragraph 3. What clients can expect after handover.]",
+    "Bramtech Engineering Systems installs power, security and sound systems for homes, shops, schools, churches and industry across Kenya. We also hire out sound equipment for events.",
+    "Our team does the work on site. We mount, wire, label and test every system, and we explain how it works before we leave.",
+    "Every job starts with a free site survey and a written quote. After handover, call or WhatsApp us if you need help.",
   ],
-  machineTypes: ["[Machine type 1]", "[Machine type 2]", "[Machine type 3]"],
-  hireEquipment: [
-    "[Speakers, brand and model]",
-    "[Amplifiers]",
-    "[Mixers]",
-    "[DJ equipment]",
-    "[Microphones]",
-    "[Stands and cabling]",
-  ],
+  // Optional. Leave empty to hide. Example: ["Mixers", "Conveyors"]
+  machineTypes: [] as string[],
+  // Optional. Leave empty to hide. Example: ["JBL speakers", "Behringer mixers"]
+  hireEquipment: [] as string[],
 };
 
 /** Footer credit. Set href to the Trillionaire Designs link (website or WhatsApp). The buttons show once it is set. */
@@ -53,3 +49,5 @@ export function waLink(text: string) {
   return `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`;
 }
 export const isPlaceholder = (v: string) => v.startsWith("[");
+/** True when a value has been filled in (not empty, not a [placeholder]). */
+export const isSet = (v?: string) => !!v && !isPlaceholder(v);

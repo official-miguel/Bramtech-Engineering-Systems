@@ -3,7 +3,7 @@ import { PageHero } from "@/components/PageHero";
 import { QuoteForm } from "@/components/QuoteForm";
 import { Reveal } from "@/components/Reveal";
 import { Chat, Phone, Pin } from "@/components/Icons";
-import { site, waLink } from "@/content/site";
+import { site, waLink, isSet } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Contact and free quote",
@@ -30,23 +30,31 @@ export default function ContactPage() {
                   <Chat className="h-6 w-6 text-orange-text" /> WhatsApp us
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-slate">
-                <Pin className="mt-0.5 h-6 w-6 shrink-0 text-orange-text" />
-                <span>
-                  {site.address}
-                  <br />
-                  {site.email}
-                </span>
-              </li>
-            </ul>
-            <h3 className="mt-8 text-lg">Opening hours</h3>
-            <ul className="mt-2 space-y-1 text-slate">
-              {site.hours.map((h) => (
-                <li key={h.days}>
-                  {h.days}: {h.time}
+              {(isSet(site.address) || isSet(site.email)) && (
+                <li className="flex items-start gap-3 text-slate">
+                  <Pin className="mt-0.5 h-6 w-6 shrink-0 text-orange-text" />
+                  <span>
+                    {isSet(site.address) && site.address}
+                    {isSet(site.address) && isSet(site.email) && <br />}
+                    {isSet(site.email) && site.email}
+                  </span>
                 </li>
-              ))}
+              )}
             </ul>
+            {site.hours.some((h) => isSet(h.time)) && (
+              <>
+                <h3 className="mt-8 text-lg">Opening hours</h3>
+                <ul className="mt-2 space-y-1 text-slate">
+                  {site.hours
+                    .filter((h) => isSet(h.time))
+                    .map((h) => (
+                      <li key={h.days}>
+                        {h.days}: {h.time}
+                      </li>
+                    ))}
+                </ul>
+              </>
+            )}
           </Reveal>
           <Reveal delay={0.1}>
             <div className="rounded-card border border-sky bg-white p-6 shadow-soft lg:p-8">

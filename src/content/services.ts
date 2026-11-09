@@ -40,7 +40,7 @@ export const services: Service[] = [
       "Earthing, protection and labelling",
       "Testing and handover",
     ],
-    gallery: ["solar-roof-array", "solar-rooftop-panels", "solar-water-heater", "solar-hybrid-inverter", "solar-battery-inverter"],
+    gallery: ["solar-team-inverter", "solar-array-field", "solar-roof-array", "solar-rooftop-panels", "solar-heater-frame", "solar-water-heater", "solar-hybrid-inverter", "solar-battery-inverter", "solar-srne-cage", "solar-srne-cage-close", "solar-prostar-rack", "solar-srne-cabinet", "solar-felicity-board", "solar-wall-battery", "solar-commissioning"],
     faqs: [
       { q: "Do you offer a free site survey?", a: "Yes. We visit, measure, check your power use and give you a written quote." },
       { q: "Can solar work with my current power supply?", a: "Yes. A hybrid system can work with the grid, batteries and panels together. We confirm the design on the survey." },
@@ -73,7 +73,7 @@ export const services: Service[] = [
       "Power upgrades and backup connections",
       "Testing and labelling",
     ],
-    gallery: ["electrical-ladders", "electrical-metal-enclosure", "electrical-meter-box", "electrical-db-team"],
+    gallery: ["electrical-ladders", "electrical-metal-enclosure", "electrical-meter-box", "electrical-db-team", "solar-felicity-board"],
     faqs: [
       { q: "Do you work on both homes and businesses?", a: "Yes. We install for homes, offices, shops, schools and industrial sites." },
       { q: "Can you fix an old electrical system?", a: "Yes. We inspect it, tell you what needs to change and quote the work." },

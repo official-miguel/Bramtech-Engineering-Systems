@@ -9,18 +9,26 @@ import { Lightbox } from "./Lightbox";
 import { Arrow } from "./Icons";
 import { EASE } from "./Reveal";
 
-type Props = { items?: Project[]; limit?: number; showAllLink?: boolean; filters?: boolean };
+type Props = {
+  items?: Project[];
+  /** Shown for the "All" filter instead of everything (landing page preview). */
+  preview?: Project[];
+  limit?: number;
+  showAllLink?: boolean;
+  filters?: boolean;
+};
 
-export function ProjectGallery({ items = projects, limit, showAllLink, filters = true }: Props) {
+export function ProjectGallery({ items = projects, preview, limit, showAllLink, filters = true }: Props) {
   const reduce = useReducedMotion();
   const [cat, setCat] = useState<"All" | Category>("All");
   const [open, setOpen] = useState<number | null>(null);
   const prefix = useId();
 
   const list = useMemo(() => {
-    const f = cat === "All" ? items : items.filter((p) => p.category === cat);
-    return limit ? f.slice(0, limit) : f;
-  }, [cat, items, limit]);
+    const f = cat === "All" ? (preview ?? items) : items.filter((p) => p.category === cat);
+    const max = limit ?? (preview ? 12 : undefined);
+    return max ? f.slice(0, max) : f;
+  }, [cat, items, preview, limit]);
 
   const available = categories.filter((c) => c === "All" || items.some((p) => p.category === c));
 

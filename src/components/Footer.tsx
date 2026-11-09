@@ -6,7 +6,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { Logo } from "./Logo";
 import { Badge } from "./ui";
 import { services } from "@/content/services";
-import { site, isPlaceholder, designer } from "@/content/site";
+import { site, isSet, designer } from "@/content/site";
 import { Arrow } from "./Icons";
 
 export function Footer() {
@@ -23,19 +23,19 @@ export function Footer() {
           <p className="max-w-xs leading-relaxed">
             We build and install power, security and sound systems. We also hire out sound equipment for events.
           </p>
-          <ul className="flex flex-wrap gap-3 text-sm">
-            {site.social.map((s) => (
-              <li key={s.label}>
-                {isPlaceholder(s.href) ? (
-                  <span className="text-white/50">{s.label} [link]</span>
-                ) : (
-                  <a href={s.href} className="underline hover:text-orange" target="_blank" rel="noopener noreferrer">
-                    {s.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
+          {site.social.some((s) => isSet(s.href)) && (
+            <ul className="flex flex-wrap gap-3 text-sm">
+              {site.social
+                .filter((s) => isSet(s.href))
+                .map((s) => (
+                  <li key={s.label}>
+                    <a href={s.href} className="underline hover:text-orange" target="_blank" rel="noopener noreferrer">
+                      {s.label}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          )}
         </div>
 
         <div>
@@ -84,17 +84,23 @@ export function Footer() {
                 {site.phoneDisplay}
               </a>
             </p>
-            <p>{site.email}</p>
-            <p>{site.address}</p>
+            {isSet(site.email) && <p>{site.email}</p>}
+            {isSet(site.address) && <p>{site.address}</p>}
           </address>
-          <h3 className="mb-2 mt-6 font-heading text-base text-white">Opening hours</h3>
-          <ul className="space-y-1 text-sm">
-            {site.hours.map((h) => (
-              <li key={h.days}>
-                {h.days}: {h.time}
-              </li>
-            ))}
-          </ul>
+          {site.hours.some((h) => isSet(h.time)) && (
+            <>
+              <h3 className="mb-2 mt-6 font-heading text-base text-white">Opening hours</h3>
+              <ul className="space-y-1 text-sm">
+                {site.hours
+                  .filter((h) => isSet(h.time))
+                  .map((h) => (
+                    <li key={h.days}>
+                      {h.days}: {h.time}
+                    </li>
+                  ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
 

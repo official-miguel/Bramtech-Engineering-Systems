@@ -9,7 +9,7 @@ import { Steps } from "@/components/Steps";
 import { Reviews } from "@/components/Reviews";
 import { QuoteBand } from "@/components/QuoteBand";
 import { SectionHeading } from "@/components/ui";
-import { projects } from "@/content/projects";
+import { featured, projects } from "@/content/projects";
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
               intro="Photos from our own jobs. Tap any photo to see it full size."
             />
           </div>
-          <ProjectGallery items={projects} limit={12} showAllLink />
+          <ProjectGallery items={projects} preview={featured} showAllLink />
         </div>
       </section>
       <HireSection />

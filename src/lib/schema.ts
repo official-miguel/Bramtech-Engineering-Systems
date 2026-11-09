@@ -1,4 +1,4 @@
-import { site } from "@/content/site";
+import { site, isSet } from "@/content/site";
 import { services, type Service } from "@/content/services";
 
 export function localBusiness(rating?: { avg: number; count: number }) {
@@ -9,8 +9,13 @@ export function localBusiness(rating?: { avg: number; count: number }) {
     url: site.url,
     telephone: site.phoneTel,
     image: `${site.url}/images/solar/team-installing-inverter.jpg`,
-    address: { "@type": "PostalAddress", addressCountry: "KE", addressLocality: site.city, streetAddress: site.address },
-    areaServed: site.areasServed,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "KE",
+      ...(isSet(site.city) ? { addressLocality: site.city } : {}),
+      ...(isSet(site.address) ? { streetAddress: site.address } : {}),
+    },
+    areaServed: site.areasServed.some(isSet) ? site.areasServed.filter(isSet) : "Kenya",
     makesOffer: services.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title } })),
     ...(rating && rating.count >= 3
       ? {

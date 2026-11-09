@@ -50,7 +50,9 @@ export function HireSection({ page = false }: { page?: boolean }) {
                   </li>
                 ))}
               </ul>
-              <p className="mt-4 text-sm text-white/60">Equipment list to be confirmed: {site.hireEquipment.join(", ")}.</p>
+              {site.hireEquipment.length > 0 && (
+                <p className="mt-4 text-sm text-white/70">Includes: {site.hireEquipment.join(", ")}.</p>
+              )}
               <p className="mt-6 rounded-card border border-white/15 p-4 text-white/85">
                 Hire is for events and short-term use. Looking for a permanent system?{" "}
                 <Link href="/services/sound-installation" className="font-bold text-orange underline">

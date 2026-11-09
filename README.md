@@ -40,7 +40,7 @@ List every placeholder in `PLACEHOLDERS.md`.
 
 ### Add a project photo
 
-1. Put the image in `public/images/<folder>/`.
+1. Shrink and copy the photo in: `node scripts/add-photos.mjs <sourceFolder> <targetFolder> 1.jpg=my-photo-name` (saves to `public/images/<targetFolder>/`, max 1600px).
 2. Run `node scripts/blur.mjs` (creates the blur placeholder and size data).
 3. Add an entry to `src/content/projects.ts` with `id`, `title`, `category`, `image`, `alt`, `position` (the `object-position` that keeps people and equipment in frame). Orientation is read from the image.
 
