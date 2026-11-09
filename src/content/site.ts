@@ -46,7 +46,7 @@ export const site = {
 /** Footer credit. Set href to the Trillionaire Designs link (website or WhatsApp). The buttons show once it is set. */
 export const designer = {
   name: "Trillionaire Designs",
-  href: "",
+  href: "https://trillionairedesigns.co.ke",
 };
 
 export function waLink(text: string) {
