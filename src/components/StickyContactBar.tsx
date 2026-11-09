@@ -1,10 +1,19 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Chat, Phone } from "./Icons";
 import { site, waLink } from "@/content/site";
 import { track } from "@/lib/analytics";
 
 export function StickyContactBar() {
+  const [overFooter, setOverFooter] = useState(false);
+  useEffect(() => {
+    const footer = document.getElementById("contact");
+    if (!footer) return;
+    const io = new IntersectionObserver(([e]) => setOverFooter(e.isIntersecting), { threshold: 0 });
+    io.observe(footer);
+    return () => io.disconnect();
+  }, []);
   const wa = waLink("Hello Bramtech, I would like a quote.");
   return (
     <>
@@ -34,7 +43,11 @@ export function StickyContactBar() {
         rel="noopener noreferrer"
         onClick={() => track("whatsapp_click")}
         aria-label="Chat with us on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 hidden h-14 items-center gap-2 rounded-full bg-orange px-5 font-bold text-navy shadow-xl transition-transform hover:-translate-y-0.5 md:flex"
+        tabIndex={overFooter ? -1 : 0}
+        aria-hidden={overFooter}
+        className={`fixed bottom-6 right-6 z-50 hidden h-14 items-center gap-2 rounded-full bg-orange px-5 font-bold text-navy shadow-xl transition-all duration-300 hover:-translate-y-0.5 md:flex ${
+          overFooter ? "pointer-events-none translate-y-4 opacity-0" : ""
+        }`}
       >
         <Chat className="h-6 w-6" /> WhatsApp us
       </a>
