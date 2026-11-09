@@ -31,14 +31,14 @@ export function MaskImage({ img, sizes, className = "", aspect = "aspect-[4/5]",
       <motion.div
         className="absolute inset-0 overflow-hidden rounded-card bg-sky"
         initial={false}
-        animate={reduce ? { opacity: shown ? 1 : 0 } : { clipPath: shown ? "inset(0 0 0 0)" : hidden }}
-        transition={{ duration: reduce ? 0.3 : 1.1, ease: EASE }}
+        animate={{ clipPath: shown ? "inset(0 0 0 0)" : hidden }}
+        transition={{ duration: reduce ? 0 : 1.1, ease: EASE }}
       >
         <motion.div
           className="absolute inset-0"
           initial={false}
-          animate={{ scale: reduce || shown ? 1 : 1.15 }}
-          transition={{ duration: 1.4, ease: EASE }}
+          animate={{ scale: shown ? 1 : 1.15 }}
+          transition={{ duration: reduce ? 0 : 1.4, ease: EASE }}
         >
           <Photo img={img} sizes={sizes} priority={priority} />
         </motion.div>

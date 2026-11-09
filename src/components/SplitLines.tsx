@@ -36,8 +36,8 @@ export function SplitLines({ lines, as = "h2", className, delay = 0, immediate, 
           <motion.span
             className="block"
             variants={{
-              hidden: reduce ? { opacity: 0 } : { y: "110%" },
-              show: reduce ? { opacity: 1 } : { y: "0%", transition: { duration: 0.9, ease: EASE } },
+              hidden: { y: "110%" },
+              show: { y: "0%", transition: { duration: reduce ? 0 : 0.9, ease: EASE } },
             }}
           >
             {line}

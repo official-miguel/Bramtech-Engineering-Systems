@@ -91,22 +91,14 @@ export function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <motion.div
-            initial={reduce ? { opacity: 0 } : { clipPath: "inset(0 100% 0 0)" }}
-            animate={reduce ? { opacity: 1 } : { clipPath: "inset(0 0% 0 0)" }}
-            transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}
-            className="relative aspect-[4/5] overflow-hidden rounded-card bg-deep sm:aspect-[5/5] lg:aspect-[4/5]"
-          >
-            <motion.div
-              className="absolute inset-x-0 -inset-y-[6%]"
-              style={reduce ? undefined : { y: photoY }}
-              initial={{ scale: reduce ? 1 : 1.08 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 2, ease: EASE }}
-            >
-              <Photo img={team.hero} priority sizes="(min-width:1024px) 40vw, 92vw" />
+          {/* Reveal is pure CSS so the photo is never stuck hidden if JS is slow or motion is reduced. */}
+          <div className="hero-reveal relative aspect-[4/5] overflow-hidden rounded-card bg-deep sm:aspect-[5/5] lg:aspect-[4/5]">
+            <motion.div className="absolute inset-x-0 -inset-y-[6%]" style={reduce ? undefined : { y: photoY }}>
+              <div className="hero-zoom absolute inset-0">
+                <Photo img={team.hero} priority sizes="(min-width:1024px) 40vw, 92vw" />
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
 
           <motion.div
             style={reduce ? undefined : { y: cardY }}

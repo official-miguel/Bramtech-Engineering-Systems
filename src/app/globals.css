@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: auto;
+  color-scheme: light only;
 }
 html.lenis,
 html.lenis body {
@@ -144,7 +145,34 @@ h4 {
   top: 1rem;
 }
 
+@keyframes hero-reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.hero-reveal {
+  animation: hero-reveal 1.2s var(--ease-out-expo) 0.15s both;
+}
+.hero-zoom {
+  animation: hero-zoom 2s var(--ease-out-expo) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .hero-zoom {
+    animation: none !important;
+  }
   .marquee-track,
   .orb,
   .glow-hover:hover {

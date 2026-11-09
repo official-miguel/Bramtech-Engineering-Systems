@@ -26,9 +26,16 @@ export const metadata: Metadata = {
     images: [{ url: "/images/solar/team-installing-inverter.jpg", width: 1476, height: 1820, alt: "Bramtech installers fitting a hybrid inverter" }],
   },
   alternates: { canonical: "./" },
+  // Keep the brand colours in phone dark mode (opts out of browser auto-dark).
+  other: { "color-scheme": "light only", "supported-color-schemes": "light" },
 };
 
-export const viewport: Viewport = { themeColor: "#0F2238", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = {
+  themeColor: "#0F2238",
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "light",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const plausible = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN;
