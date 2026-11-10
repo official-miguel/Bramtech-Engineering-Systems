@@ -16,7 +16,7 @@ Nothing on the live site shows a `[bracket]` placeholder. Items that are not fil
 
 ## Confirm with the owner
 
-- Phone `0722 257 244` (shown everywhere). One photo (`felicity-wall-battery-inverter.jpg`) has `0723 607 683` written on a distribution board label. Confirm which number to publish.
+- Phone `0722 257 244` is confirmed and used everywhere. Note: the photo `felicity-wall-battery-inverter.jpg` has `0723 607 683` handwritten on a board label. Retake or remove that photo if you do not want visitors to see the other number.
 - Trust strip: "Own installation team", "Written warranty", "Free site survey". Remove any you cannot back up (`trust` in `site.ts`).
 - CEO: Raphael Kang'ara, Chief Executive Officer.
 
