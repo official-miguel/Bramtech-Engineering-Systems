@@ -27,14 +27,14 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "./" },
   // Keep the brand colours in phone dark mode (opts out of browser auto-dark).
-  other: { "color-scheme": "light only", "supported-color-schemes": "light" },
+  other: { "supported-color-schemes": "light", "darkreader-lock": "true" },
 };
 
 export const viewport: Viewport = {
   themeColor: "#0F2238",
   width: "device-width",
   initialScale: 1,
-  colorScheme: "light",
+  colorScheme: "only light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

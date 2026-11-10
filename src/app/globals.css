@@ -22,7 +22,12 @@
 
 html {
   scroll-behavior: auto;
-  color-scheme: light only;
+  color-scheme: only light;
+  background-color: #fff;
+  forced-color-adjust: auto;
+}
+body {
+  color-scheme: only light;
 }
 html.lenis,
 html.lenis body {
