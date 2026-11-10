@@ -29,6 +29,20 @@ html {
 body {
   color-scheme: only light;
 }
+
+/*
+ * Browsers that force dark mode on "light-only" sites (some Samsung Internet versions) usually skip pages
+ * that answer the dark-mode media query themselves. This answers it with the same light colours.
+ */
+@media (prefers-color-scheme: dark) {
+  :root,
+  html,
+  body {
+    color-scheme: only light;
+    background-color: #fff;
+    color: var(--color-navy);
+  }
+}
 html.lenis,
 html.lenis body {
   height: auto;
