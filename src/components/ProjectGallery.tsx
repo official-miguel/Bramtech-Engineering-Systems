@@ -79,10 +79,6 @@ export function ProjectGallery({ items = projects, preview, limit, showAllLink, 
                     <Photo img={p} sizes="(min-width:1024px) 25vw, (min-width:768px) 33vw, 50vw" />
                   </div>
                 </motion.div>
-                <span className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-navy via-navy/85 to-transparent px-4 pb-4 pt-12 text-white transition-transform duration-500 ease-out group-hover:translate-y-0 group-focus-visible:translate-y-0 max-md:translate-y-0 max-md:from-navy/80 max-md:pt-8">
-                  <span className="block font-heading text-sm leading-tight sm:text-base">{p.title}</span>
-                  <span className="mt-0.5 block text-xs font-semibold text-orange">{p.category}</span>
-                </span>
               </button>
             </motion.li>
           ))}

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import { Chevron, Close } from "./Icons";
 import type { Project } from "@/content/projects";
-import { isSet } from "@/content/site";
 
 type Props = {
   items: Project[];
@@ -127,11 +126,6 @@ export function Lightbox({ items, index, onClose, onIndex, layoutPrefix }: Props
           className="rounded-card object-contain"
           draggable={false}
         />
-        <figcaption className="absolute inset-x-0 -bottom-12 text-center text-sm text-white/80">
-          <span className="font-bold text-white">{p.title}</span> · {p.category}
-          {isSet(p.location) && ` · ${p.location}`}
-          {isSet(p.year) && `, ${p.year}`}
-        </figcaption>
       </motion.figure>
     </motion.div>
   );

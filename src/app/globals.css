@@ -186,6 +186,6 @@ h4 {
 /* Phone bottom bar spacing */
 @media (max-width: 767px) {
   body {
-    padding-bottom: 76px;
+    padding-bottom: 52px;
   }
 }
